@@ -5,10 +5,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class ContainersImpl implements Containers {
-
 	public Set initSet(Object[] tArray) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Object> set = new Set<Object>();
+		for (int i = 0; i < tArray.length; ++i) {
+			set.add(tArray[i]);
+		}
+		return set;
 	}
 
 	public List initList(Object[] tArray) {
