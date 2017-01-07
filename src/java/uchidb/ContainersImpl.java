@@ -3,10 +3,11 @@ package uchidb;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
 
 public class ContainersImpl implements Containers {
 	public Set initSet(Object[] tArray) {
-		Set<Object> set = new Set<Object>();
+		Set<Object> set = new HashSet<Object>();
 		for (int i = 0; i < tArray.length; ++i) {
 			set.add(tArray[i]);
 		}
