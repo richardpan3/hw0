@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public class ContainersImpl implements Containers {
 	public Set initSet(Object[] tArray) {
@@ -15,8 +16,11 @@ public class ContainersImpl implements Containers {
 	}
 
 	public List initList(Object[] tArray) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Object> list = new LinkedList<Object>();
+		for (int i = 0; i < tArray.length; ++i) {
+			list.add(tArray[i]);
+		}
+		return list;
 	}
 
 	public Map initEmptyMap() {
