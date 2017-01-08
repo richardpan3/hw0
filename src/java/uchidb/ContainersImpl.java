@@ -9,15 +9,14 @@ import java.util.HashMap;
 
 public class ContainersImpl implements Containers<Integer,String> {
 	
+	//note: code for singleton inspired by https://www.tutorialspoint.com/java/java_using_singleton.htm
 	private static ContainersImpl cont = new ContainersImpl();
-
-	private ContainersImpl() {}
 
 	public static ContainersImpl getInstance() {
 	   return cont;
 	}
 	
-	private Map<String,Integer> private_map; 
+	private Map<String,Integer> private_map = null; 
 	
 	public Set<Integer> initSet(Integer[] tArray) {
 		Set<Integer> set = new HashSet<Integer>();
@@ -41,8 +40,7 @@ public class ContainersImpl implements Containers<Integer,String> {
 		this.private_map = mapToStoreInClass;
 	}
 
-	public boolean addToMap(String key, Integer value,
-			boolean overwriteExistingKey) {
+	public boolean addToMap(String key, Integer value, boolean overwriteExistingKey) {
 		if (overwriteExistingKey) {
 			this.private_map.put(key, value);
 			return true;
@@ -54,7 +52,10 @@ public class ContainersImpl implements Containers<Integer,String> {
 	}
 
 	public Integer getValueFromMap(String key) {
-		return this.private_map.get(key);
+		if(this.private_map!=null) {
+			return this.private_map.get(key);
+		}
+		return 1; //error case, should not do this unless tests don't run in order	
 	}
 
 	public Integer getValueFromMap(String key, Integer defaultValue) {
