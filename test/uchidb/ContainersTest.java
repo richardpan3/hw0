@@ -100,6 +100,10 @@ public class ContainersTest {
 	public void testContSingleton(){
 		Containers<Integer, String> cont2 = HW0Runner.getContainers();
 		assertTrue(cont == cont2);
+		System.out.println("----------");
+		System.out.println(intClassArray[0]);
+		System.out.println(cont2.getValueFromMap(strArray[0]));
+		System.out.println("----------");
 		assertTrue("Map correct", intClassArray[0] == cont2.getValueFromMap(strArray[0]));
 		
 		
